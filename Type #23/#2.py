@@ -1,9 +1,11 @@
-def Prog(current_num, goal):
+def Prog(current_num, goal, cnt):
+    if cnt > 1:
+        return 0
     if current_num > goal:
         return 0
-    if current_num == goal:
+    if current_num == goal and cnt == 1:
         return 1
-    return Prog(current_num + 1, goal) + Prog(current_num + 2, goal) + Prog(current_num + 4, goal)
+    return Prog(current_num + 1, goal, cnt) + Prog(current_num + 2, goal, cnt) + Prog(current_num * 4, goal, cnt + 1)
 
 
 def main():
